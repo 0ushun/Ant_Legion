@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ゲーム攻略サイト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>⚔ ゲーム攻略サイト ⚔</h1>
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="#simulator">シミュレータ</a>
+      <a href="#guide">攻略記事</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>このサイトについて</h2>
+      <p>ここではゲームの攻略情報やシミュレータをまとめています。</p>
+    </section>
+
+    <section id="simulator">
+      <h2>シミュレータ</h2>
+      <label for="soldier">兵士の種類:</label>
+      <select id="soldier">
+        <option value="A">兵士A</option>
+        <option value="B">兵士B</option>
+      </select>
+
+      <label for="count">人数:</label>
+      <input type="number" id="count" value="1" min="1">
+
+      <button onclick="simulate()">計算</button>
+      <p id="result"></p>
+    </section>
+
+    <section id="guide">
+      <h2>攻略記事</h2>
+      <article>
+        <h3>序盤の進め方</h3>
+        <p>まずは兵士Aを優先的に育成しましょう。コスト効率が良いため…</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ゲーム攻略サイト</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
