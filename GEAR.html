@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>GEAR 攻略ページ</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    h2 { margin-top: 50px; }
+    table { border-collapse: collapse; margin: 10px 0; width: 80%; }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      text-align: center;
+    }
+    .simulator { margin-bottom: 30px; }
+    .result { font-weight: bold; font-size: 1.2em; margin-bottom: 10px; }
+    .toc a { display: block; margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GEAR 攻略ページ</h1>
+  </header>
+
+  <!-- 目次 -->
+  <nav class="toc">
+    <h2>目次</h2>
+    <a href="#simulator">1. 装備シミュレータ</a>
+    <a href="#enhance">2. 装備強化表</a>
+    <a href="#rankup">3. 装備ランクアップ表</a>
+    <a href="#evolution">4. 装備進化表</a>
+  </nav>
+
+  <!-- 装備シミュレータ -->
+  <section id="simulator" class="simulator">
+    <h2>1. 装備シミュレータ</h2>
+    <div class="result">総合効果: <span id="total">0%</span></div>
+    <table>
+      <tbody>
+        <!-- 3行2列のプルダウン -->
+        <tr>
+          <td><select onchange="updateSimulator(this)"><option value="0">選択</option><option value="5">強化 +5%</option><option value="10">ランク +10%</option></select></td>
+          <td><select onchange="updateSimulator(this)"><option value="0">選択</option><option value="5">強化 +5%</option><option value="10">ランク +10%</option></select></td>
+        </tr>
+        <tr>
+          <td><select onchange="updateSimulator(this)"><option value="0">選択</option><option value="5">強化 +5%</option><option value="10">ランク +10%</option></select></td>
+          <td><select onchange="updateSimulator(this)"><option value="0">選択</option><option value="5">強化 +5%</option><option value="10">ランク +10%</option></select></td>
+        </tr>
+        <tr>
+          <td><select onchange="updateSimulator(this)"><option value="0">選択</option><option value="5">強化 +5%</option><option value="10">ランク +10%</option></select></td>
+          <td><select onchange="updateSimulator(this)"><option value="0">選択</option><option value="5">強化 +5%</option><option value="10">ランク +10%</option></select></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 装備強化表 -->
+  <section id="enhance">
+    <h2>2. 装備強化表</h2>
+    <table>
+      <thead>
+        <tr><th>Lv</th><th>必要素材</th><th>攻撃力</th><th>防御力</th></tr>
+      </thead>
+      <tbody>
+        <!-- 仮のデータ（46行必要だが省略。以下の形式で追加） -->
+        <tr><td>1</td><td>素材A</td><td>+5</td><td>+2</td></tr>
+        <tr><td>2</td><td>素材B</td><td>+8</td><td>+3</td></tr>
+        <!-- …ここに残り44行分追加していく… -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 装備ランクアップ表 -->
+  <section id="rankup">
+    <h2>3. 装備ランクアップ表</h2>
+    <table>
+      <thead>
+        <tr><th>ランク</th><th>必要素材</th><th>攻撃力増加</th><th>防御力増加</th></tr>
+      </thead>
+      <tbody>
+        <!-- 仮のデータ（12行） -->
+        <tr><td>1</td><td>ランク石×5</td><td>+10</td><td>+5</td></tr>
+        <tr><td>2</td><td>ランク石×10</td><td>+20</td><td>+10</td></tr>
+        <!-- …あと10行分追加… -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 装備進化表 -->
+  <section id="evolution">
+    <h2>4. 装備進化表</h2>
+    <p>編集中...</p>
+  </section>
+
+  <script>
+    function updateSimulator(selectElement) {
+      const selects = document.querySelectorAll("select");
+      let total = 0;
+      selects.forEach(sel => {
+        total += parseInt(sel.value);
+      });
+      document.getElementById("total").textContent = total + "%";
+    }
+  </script>
+</body>
+</html>
