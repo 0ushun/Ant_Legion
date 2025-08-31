@@ -52,3 +52,96 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ゲーム攻略サイト</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    /* サイドバー */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 100%;
+      background: #f0f0f0;
+      border-left: 2px solid #ccc;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    .sidebar h3 {
+      margin: 10px 0;
+      cursor: pointer;
+      background: #ddd;
+      padding: 5px;
+      border-radius: 4px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding-left: 10px;
+      margin: 0;
+      display: none; /* デフォルトは非表示 */
+    }
+    .sidebar ul li {
+      margin: 5px 0;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚔ ゲーム攻略サイト ⚔</h1>
+  </header>
+
+  <main>
+    <h2>メインコンテンツ</h2>
+    <p>ここに攻略記事やシミュレーターを配置します。</p>
+  </main>
+
+  <!-- サイドバー -->
+  <div class="sidebar">
+    <h3 onclick="toggleMenu('eventMenu')">イベント</h3>
+    <ul id="eventMenu">
+      <li><a href="stamps.html">STAMPS</a></li>
+      <li><a href="conquest.html">CONQUEST</a></li>
+      <li><a href="breakthrough.html">BREAK THROUGH</a></li>
+    </ul>
+
+    <h3 onclick="toggleMenu('buildMenu')">建築</h3>
+    <ul id="buildMenu">
+      <li><a href="queen.html">Queen</a></li>
+      <li><a href="rab.html">Rab</a></li>
+    </ul>
+
+    <h3 onclick="toggleMenu('equipMenu')">装備</h3>
+    <ul id="equipMenu">
+      <li><a href="gear.html">GEAR</a></li>
+      <li><a href="cell.html">CELL</a></li>
+    </ul>
+  </div>
+
+  <script>
+    // メニューの開閉
+    function toggleMenu(id) {
+      const menu = document.getElementById(id);
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
