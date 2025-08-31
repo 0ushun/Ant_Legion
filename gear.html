@@ -3,60 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>GEAR 攻略ページ</title>
-  <style>
-    body { font-family: sans-serif; margin: 20px; }
-    h2 { margin-top: 50px; }
-    table { border-collapse: collapse; margin: 10px 0; width: 80%; }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 5px 10px;
-      text-align: center;
-    }
-    .simulator { margin-bottom: 30px; }
-    .result { font-weight: bold; font-size: 1.2em; margin-bottom: 10px; }
-    .toc a { display: block; margin: 5px 0; }
-
-    /* サイドバーを右端に固定 */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 200px;
-      height: 100%;
-      background: #f0f0f0;
-      border-left: 2px solid #ccc;
-      padding: 10px;
-      overflow-y: auto;
-    }
-    .sidebar h3 {
-      margin: 10px 0;
-      cursor: pointer;
-      background: #ddd;
-      padding: 5px;
-      border-radius: 4px;
-    }
-    .sidebar ul {
-      list-style: none;
-      padding-left: 10px;
-      margin: 0;
-      display: none; /* デフォルト非表示 */
-    }
-    .sidebar ul li {
-      margin: 5px 0;
-    }
-    .sidebar ul li a {
-      text-decoration: none;
-      color: #333;
-    }
-    .sidebar ul li a:hover {
-      text-decoration: underline;
-    }
-
-    /* 本文部分をサイドバーと重ならないように調整 */
-    main, section, header {
-      margin-right: 220px; /* サイドバー分の余白を確保 */
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -65,7 +12,7 @@
 
   <!-- 目次 -->
   <nav class="toc">
-    <h2>装備</h2>
+    <h2>目次</h2>
     <a href="#simulator">1. 装備シミュレータ</a>
     <a href="#enhance">2. 装備強化表</a>
     <a href="#rankup">3. 装備ランクアップ表</a>
@@ -78,6 +25,7 @@
     <div class="result">総合効果: <span id="total">0%</span></div>
     <table>
       <tbody>
+        <!-- 3行2列のプルダウン -->
         <tr>
           <td><select onchange="updateSimulator(this)"><option value="0">選択</option><option value="5">強化 +5%</option><option value="10">ランク +10%</option></select></td>
           <td><select onchange="updateSimulator(this)"><option value="0">選択</option><option value="5">強化 +5%</option><option value="10">ランク +10%</option></select></td>
@@ -102,8 +50,10 @@
         <tr><th>Lv</th><th>必要素材</th><th>攻撃力</th><th>防御力</th></tr>
       </thead>
       <tbody>
+        <!-- 仮のデータ（46行必要だが省略。以下の形式で追加） -->
         <tr><td>1</td><td>素材A</td><td>+5</td><td>+2</td></tr>
         <tr><td>2</td><td>素材B</td><td>+8</td><td>+3</td></tr>
+        <!-- …ここに残り44行分追加していく… -->
       </tbody>
     </table>
   </section>
@@ -116,8 +66,10 @@
         <tr><th>ランク</th><th>必要素材</th><th>攻撃力増加</th><th>防御力増加</th></tr>
       </thead>
       <tbody>
+        <!-- 仮のデータ（12行） -->
         <tr><td>1</td><td>ランク石×5</td><td>+10</td><td>+5</td></tr>
         <tr><td>2</td><td>ランク石×10</td><td>+20</td><td>+10</td></tr>
+        <!-- …あと10行分追加… -->
       </tbody>
     </table>
   </section>
@@ -128,30 +80,8 @@
     <p>編集中...</p>
   </section>
 
-  <!-- サイドバー -->
-  <div class="sidebar">
-    <h3 onclick="toggleMenu('eventMenu')">イベント</h3>
-    <ul id="eventMenu">
-      <li><a href="stamps.html">STAMPS</a></li>
-      <li><a href="conquest.html">CONQUEST</a></li>
-      <li><a href="breakthrough.html">BREAK THROUGH</a></li>
-    </ul>
-
-    <h3 onclick="toggleMenu('buildMenu')">建築</h3>
-    <ul id="buildMenu">
-      <li><a href="queen.html">Queen</a></li>
-      <li><a href="rab.html">Rab</a></li>
-    </ul>
-
-    <h3 onclick="toggleMenu('equipMenu')">装備</h3>
-    <ul id="equipMenu">
-      <li><a href="gear.html">GEAR</a></li>
-      <li><a href="cell.html">CELL</a></li>
-    </ul>
-  </div>
-
   <script>
-    function updateSimulator() {
+    function updateSimulator(selectElement) {
       const selects = document.querySelectorAll("select");
       let total = 0;
       selects.forEach(sel => {
@@ -159,7 +89,28 @@
       });
       document.getElementById("total").textContent = total + "%";
     }
+  </script>
+</body>
+</html>
 
+
+
+
+
+
+
+ <!-- サイドバーを読み込む -->
+  <div id="sidebar-container"></div>
+
+  <script>
+    // sidebar.html を読み込む
+    fetch("sidebar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("sidebar-container").innerHTML = data;
+      });
+
+    // メニュー開閉処理
     function toggleMenu(id) {
       const menu = document.getElementById(id);
       menu.style.display = (menu.style.display === "block") ? "none" : "block";
