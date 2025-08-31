@@ -1,43 +1,40 @@
-body {
-  font-family: "Segoe UI", sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f9;
+/* サイドバー全体 */
+.sidebar {
+  width: 200px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-left: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ホームリンク */
+.sidebar .home-link a {
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* 共通のリンクスタイル */
+.sidebar ul li a {
+  display: block;
+  padding: 4px 0;
+  text-decoration: none;
   color: #333;
 }
 
-header {
-  background: #222;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
+.sidebar ul li a:hover,
+.sidebar .home-link a:hover {
+  text-decoration: underline;
 }
 
-header h1 {
-  margin: 0;
-}
-
-nav a {
-  color: #fff;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-main {
-  padding: 20px;
-}
-
-section {
-  margin-bottom: 30px;
-  padding: 15px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-button {
-  margin-top: 10px;
-  padding: 5px 10px;
+/* 見出し */
+.sidebar h3 {
   cursor: pointer;
+  margin: 10px 0 5px;
 }
