@@ -107,30 +107,18 @@
 <body>
 
 
-  <!-- サイドバー -->
-  <div class="sidebar">
-    <h3 onclick="toggleMenu('eventMenu')">イベント</h3>
-    <ul id="eventMenu">
-      <li><a href="stamps.html">STAMPS</a></li>
-      <li><a href="conquest.html">CONQUEST</a></li>
-      <li><a href="breakthrough.html">BREAK THROUGH</a></li>
-    </ul>
-
-    <h3 onclick="toggleMenu('buildMenu')">建築</h3>
-    <ul id="buildMenu">
-      <li><a href="queen.html">Queen</a></li>
-      <li><a href="rab.html">Rab</a></li>
-    </ul>
-
-    <h3 onclick="toggleMenu('equipMenu')">装備</h3>
-    <ul id="equipMenu">
-      <li><a href="gear.html">GEAR</a></li>
-      <li><a href="cell.html">CELL</a></li>
-    </ul>
-  </div>
+ <!-- サイドバーを読み込む -->
+  <div id="sidebar-container"></div>
 
   <script>
-    // メニューの開閉
+    // sidebar.html を読み込む
+    fetch("sidebar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("sidebar-container").innerHTML = data;
+      });
+
+    // メニュー開閉処理
     function toggleMenu(id) {
       const menu = document.getElementById(id);
       menu.style.display = (menu.style.display === "block") ? "none" : "block";
