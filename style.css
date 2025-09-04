@@ -1,40 +1,159 @@
-/* サイドバー全体 */
+/* =========================================
+   Global base
+========================================= */
+:root {
+  --sidebar-width: 240px;
+  --border: #dcdcdc;
+  --text: #222;
+  --muted: #666;
+  --bg-sidebar: #f7f7f9;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  line-height: 1.6;
+  background: #fff;
+}
+
+/* 画像ははみ出さない */
+img { max-width: 100%; height: auto; display: block; }
+
+/* =========================================
+   Content area (本文側の余白調整)
+   右サイドバーと重ならないようにマージン
+========================================= */
+header, main, section, .main-content, .content {
+  padding: 16px 20px;
+  margin-right: calc(var(--sidebar-width) + 20px);
+  max-width: 1100px;
+}
+
+/* 見出し・目次 */
+h1 { margin: 16px 0 8px; }
+h2 { margin: 32px 0 12px; }
+.toc a { display: block; margin: 4px 0; text-decoration: none; color: var(--text); }
+.toc a:hover { text-decoration: underline; }
+
+/* =========================================
+   Tables
+========================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 24px;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  text-align: center;
+  vertical-align: middle;
+  word-break: break-word;
+}
+thead th {
+  background: #fafafa;
+  font-weight: 700;
+}
+
+/* =========================================
+   Forms (セレクトや入力欄)
+========================================= */
+input[type="text"], input[type="number"], select, textarea {
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.result { font-weight: 700; font-size: 1.1rem; margin: 8px 0 12px; }
+.simulator { margin-bottom: 24px; }
+
+/* =========================================
+   Sidebar (右固定)
+   sidebar.html の中身に適用
+========================================= */
 .sidebar {
-  width: 200px;
-  padding: 10px;
-  background-color: #f8f8f8;
-  border-left: 1px solid #ccc;
   position: fixed;
   top: 0;
   right: 0;
-  height: 100%;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--bg-sidebar);
+  border-left: 1px solid var(--border);
+  padding: 12px;
   overflow-y: auto;
+  z-index: 1000;
 }
 
-/* ホームリンク */
-.sidebar .home-link a {
+/* ホームリンク（独立表示） */
+.sidebar .home-link a,
+.sidebar > a[href] {
   display: block;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
-  color: #333;
-  margin-bottom: 15px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.sidebar .home-link a:hover,
+.sidebar > a[href]:hover { text-decoration: underline; }
+
+/* セクション見出し（開閉トグル） */
+.sidebar h3 {
+  font-size: 14px;
+  margin: 10px 0 6px;
+  padding: 6px 8px;
+  background: #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
 }
 
-/* 共通のリンクスタイル */
+/* リスト（デフォルト非表示想定） */
+.sidebar ul {
+  list-style: none;
+  margin: 0 0 8px 0;
+  padding-left: 14px;
+  display: none;
+}
+
+/* 展開状態を class で管理したい場合は .show を使用
+   JS で style.display を切り替えているなら不要 */
+.sidebar ul.show { display: block; }
+
+.sidebar ul li a,
+.sidebar a {
+  text-decoration: none;
+  color: var(--text);
+}
 .sidebar ul li a {
   display: block;
   padding: 4px 0;
-  text-decoration: none;
-  color: #333;
 }
+.sidebar ul li a:hover { text-decoration: underline; }
 
-.sidebar ul li a:hover,
-.sidebar .home-link a:hover {
-  text-decoration: underline;
-}
+/* 小さめの補足テキスト */
+.muted { color: var(--muted); }
 
-/* 見出し */
-.sidebar h3 {
-  cursor: pointer;
-  margin: 10px 0 5px;
+/* 汎用ユーティリティ */
+.hidden { display: none !important; }
+
+/* =========================================
+   Responsive (スマホ幅)
+   サイドバーを下部配置に切替
+========================================= */
+@media (max-width: 900px) {
+  :root { --sidebar-width: 0px; }
+  header, main, section, .main-content, .content {
+    margin-right: 0;
+  }
+  .sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    margin-top: 12px;
+  }
 }
