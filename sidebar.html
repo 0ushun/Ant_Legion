@@ -2,33 +2,25 @@
 <div class="sidebar">
   <!-- ホームリンク（独立して表示） -->
   <div class="home-link">
-    <a href="index.html">ホーム</a>
+    <a href="/Ant_Legion/index.html">ホーム</a>
   </div>
 
   <h3 onclick="toggleMenu('eventMenu')">イベント</h3>
   <ul id="eventMenu" style="display:none;">
-    <li><a href="stamps.html">STAMPS</a></li>
-    <li><a href="conquest.html">CONQUEST</a></li>
-    <li><a href="breakthrough.html">BREAK THROUGH</a></li>
+    <li><a href="/Ant_Legion/DataBase/Events/stamps.html">STAMPS</a></li>
+    <li><a href="/Ant_Legion/DataBase/Events/conquest.html">CONQUEST</a></li>
+    <li><a href="/Ant_Legion/DataBase/Events/breakthrough.html">BREAK THROUGH</a></li>
   </ul>
 
   <h3 onclick="toggleMenu('buildMenu')">建築</h3>
   <ul id="buildMenu" style="display:none;">
     <li><a href="/Ant_Legion/DataBase/Building/queen.html">Queen</a></li>
-    <li><a href="rab.html">Rab</a></li>
+    <li><a href="/Ant_Legion/DataBase/Building/rab.html">Rab</a></li>
   </ul>
 
   <h3 onclick="toggleMenu('equipMenu')">装備</h3>
   <ul id="equipMenu" style="display:none;">
-    <li><a href="gear.html">GEAR</a></li>
-    <li><a href="cell.html">CELL</a></li>
+    <li><a href="/Ant_Legion/DataBase/Materials/gear.html">GEAR</a></li>
+    <li><a href="/Ant_Legion/DataBase/Materials/cell.html">CELL</a></li>
   </ul>
 </div>
-
-<script>
-  // メニュー開閉
-  function toggleMenu(id) {
-    const menu = document.getElementById(id);
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-  }
-</script>
