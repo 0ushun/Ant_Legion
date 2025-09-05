@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const sidebarContainer = document.querySelector(".sidebar");
   if (sidebarContainer) {
-    fetch("/Ant_Legion/sidebar.html")
+    fetch("/Ant_Legion/sidebar.html"　+ new Date().getTime())
       .then(response => response.text())
       .then(data => {
         sidebarContainer.innerHTML = data;
