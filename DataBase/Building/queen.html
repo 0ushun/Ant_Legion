@@ -7,15 +7,8 @@
 </head>
 <body>
   <!-- サイドバー -->
-  <div class="sidebar">
-    <script>
-      fetch("sidebar.html")
-        .then(response => response.text())
-        .then(data => {
-          document.querySelector(".sidebar").innerHTML = data;
-        });
-    </script>
-  </div>
+  <div class="sidebar"></div>
+  <script src="/Ant_Legion/sidebar.js"></script>
 
   <!-- メインコンテンツ -->
   <div class="main-content">
