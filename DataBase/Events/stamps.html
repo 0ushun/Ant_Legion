@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>STAMPS - Ant Legion</title>
+  <!-- Main直下のCSSを読み込む -->
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+  <!-- サイドバーを読み込む -->
+  <div class="sidebar">
+    <!-- sidebar.htmlを読み込む仕組み（JavaScriptで外部HTMLを挿入）-->
+  </div>
+
+  <div class="content">
+    <h1>STAMPS</h1>
+    <p>
+      このページはイベント「STAMPS」に関する情報をまとめたものです。<br>
+      ここにはイベントの概要や進め方、報酬の詳細などを追記していく予定です。
+    </p>
+    <p>
+      現在はダミーテキストを入れていますが、実際には攻略情報や表を追加することを想定しています。
+    </p>
+  </div>
+
+  <script>
+    // sidebar.html を読み込むスクリプト
+    fetch("../../sidebar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector(".sidebar").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>
