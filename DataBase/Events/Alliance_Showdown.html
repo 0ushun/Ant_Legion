@@ -2,13 +2,14 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Alliance Showdown</title>
+  <title>Queen</title>
   <link rel="stylesheet" href="/Ant_Legion/style.css">
-  
+
   <!-- DataTables のCSS -->
   <link rel="stylesheet" 
         href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <!-- jQuery & DataTables 本体 -->
+
+  <!-- jQuery & DataTables 本体 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 </head>
@@ -19,36 +20,69 @@
 
   <!-- メインコンテンツ -->
   <div class="main-content">
-    <h1>同盟総動員/Alliance Showdown</h1>
-
-    <h2>説明</h2>
+    <h1>Queen</h1>
+    
+        <h2>説明</h2>
     <p>
-      ここに Alliance Showdown に関する説明を記載します。
+      ここに Alliance Hall に関する説明を記載します。
     </p>
-
     
-    <h2>専用任務</h2>
+    <h2>Queen 強化表</h2>
+
     <div class="table-wrapper">
-    <table border="1">
+      <table id="queenTable" class="display">
+        <thead>
+          <tr>
+            <th>名前</th>
+            <th>ノルマ</th>
+            <th>制限時間</th>
+            <th>獲得Pt</th>
+            <th>エビデンス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/Merchant Exchange</td>
+            <td>12</td>
+            <td>3d</td>
+            <td>100Pt</td>
+            <td><a href="images/QueenLv41to42.png" target="_blank">画像</a></td>
+          </tr>
+          <!-- 以下、行を追加 -->
+        </tbody>
+      </table>
+    </div>
 
-      <tr>
-        <td>名前</td>
-        <td>ノルマ</td>
-        <td>制限時間</td>
-        <td>獲得Pt</td>
-        <td>エビデンス</td>
-      </tr>
-      
-      <tr>
-        <td>名前</td>
-        <td>ノルマ</td>
-        <td>制限時間</td>
-        <td>獲得Pt</td>
-        <td><a href="/Ant_Legion/Evidence/Building/Alliance_Hall/Alliance_HallLv1to2.png" target="_blank">準備中</a></td>
-      </tr>
 
-    </table>
-  </div>
+
+
+
+    <h2>Queen 強化表2</h2>
+<div class="table-wrapper">
+      <table id="queenTable" class="display">
+        <thead>
+          <tr>
+            <th>名前</th>
+            <th>ノルマ</th>
+            <th>制限時間</th>
+            <th>獲得Pt</th>
+            <th>エビデンス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/Merchant Exchange</td>
+            <td>12</td>
+            <td>3d</td>
+            <td>100Pt</td>
+            <td><a href="images/QueenLv41to42.png" target="_blank">画像</a></td>
+          </tr>
+          <!-- 以下、行を追加 -->
+        </tbody>
+      </table>
+    </div>
+
+
 
 
 
@@ -56,8 +90,7 @@
     
   </div>
 
-
-    <script>
+  <script>
     // DataTables を有効化
     $(document).ready(function() {
       $('#queenTable').DataTable({
@@ -67,8 +100,5 @@
       });
     });
   </script>
-
-
-  
 </body>
 </html>
