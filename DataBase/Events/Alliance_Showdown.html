@@ -20,7 +20,7 @@
     </p>
 
     
-    <h2>Alliance Hall 強化表</h2>
+    <h2>貿易てんとう虫で交換する/Merchant Exchange</h2>
     <div class="table-wrapper">
     <table border="1">
 
@@ -44,7 +44,7 @@
   </div>
 
 
-        <h2>Alliance Hall 強化表</h2>
+        <h2>テンプレ</h2>
     <div class="table-wrapper">
     <table border="1">
 
@@ -70,5 +70,20 @@
 
     
   </div>
+
+
+    <script>
+    // DataTables を有効化
+    $(document).ready(function() {
+      $('#queenTable').DataTable({
+        paging: false,   // ページングを無効化
+        searching: true, // 絞り込み検索を有効化
+        ordering: true   // 列ごとの並び替えを有効化
+      });
+    });
+  </script>
+
+
+  
 </body>
 </html>
