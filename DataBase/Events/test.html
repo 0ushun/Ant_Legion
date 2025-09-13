@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Queen</title>
+  <link rel="stylesheet" href="/Ant_Legion/style.css">
+
+  <!-- DataTables のCSS -->
+  <link rel="stylesheet" 
+        href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+  <!-- jQuery & DataTables 本体 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+  <!-- サイドバー -->
+  <div class="sidebar"></div>
+  <script src="/Ant_Legion/sidebar.js"></script>
+
+  <!-- メインコンテンツ -->
+  <div class="main-content">
+    <h1>Queen</h1>
+    <h2>Queen 強化表</h2>
+
+    <div class="table-wrapper">
+      <table id="queenTable" class="display">
+        <thead>
+          <tr>
+            <th>Lv</th>
+            <th>時間</th>
+            <th>食料</th>
+            <th>葉</th>
+            <th>水</th>
+            <th>菌</th>
+            <th>謎の水晶</th>
+            <th>腐植土</th>
+            <th>コケ</th>
+            <th>戦力+</th>
+            <th>条件</th>
+            <th>エビデンス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>41→42</td>
+            <td>2h</td>
+            <td>100</td>
+            <td>50</td>
+            <td>40</td>
+            <td>30</td>
+            <td>10</td>
+            <td>20</td>
+            <td>-</td>
+            <td>+500</td>
+            <td>-</td>
+            <td><a href="images/QueenLv41to42.png" target="_blank">画像</a></td>
+          </tr>
+          <!-- 以下、行を追加 -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // DataTables を有効化
+    $(document).ready(function() {
+      $('#queenTable').DataTable({
+        paging: false,   // ページングを無効化
+        searching: true, // 絞り込み検索を有効化
+        ordering: true   // 列ごとの並び替えを有効化
+      });
+    });
+  </script>
+</body>
+</html>
